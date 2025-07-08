@@ -2,9 +2,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { CreditCard, Shield, X, Check } from "lucide-react";
+import { X, Check, CreditCard } from "lucide-react";
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -13,14 +11,6 @@ interface PaymentModalProps {
 
 const PaymentModal = ({ isOpen, onClose }: PaymentModalProps) => {
   const [selectedPlan, setSelectedPlan] = useState("premium");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    cardNumber: "",
-    expiryDate: "",
-    cvv: ""
-  });
 
   const plans = [
     {
@@ -49,21 +39,30 @@ const PaymentModal = ({ isOpen, onClose }: PaymentModalProps) => {
     }
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+  const handlePlanClick = (planId: string) => {
+    setSelectedPlan(planId);
+    const selectedPlanData = plans.find(p => p.id === planId);
+    if (selectedPlanData) {
+      // Redirect to third-party payment system (example: PagSeguro, Mercado Pago, etc.)
+      const paymentUrl = `https://pay.mercadopago.com/checkout?plan=${planId}&price=${selectedPlanData.price}&name=${selectedPlanData.name}`;
+      window.open(paymentUrl, '_blank');
+      onClose();
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aqui você integraria com um processador de pagamento real
-    alert("Pagamento processado com sucesso! Você receberá as instruções no WhatsApp.");
-    onClose();
+  const handlePaymentRedirect = () => {
+    const selectedPlanData = plans.find(p => p.id === selectedPlan);
+    if (selectedPlanData) {
+      // Redirect to third-party payment system
+      const paymentUrl = `https://pay.mercadopago.com/checkout?plan=${selectedPlan}&price=${selectedPlanData.price}&name=${selectedPlanData.name}`;
+      window.open(paymentUrl, '_blank');
+      onClose();
+    }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between">
             Escolha seu plano
@@ -75,125 +74,75 @@ const PaymentModal = ({ isOpen, onClose }: PaymentModalProps) => {
 
         <div className="space-y-6">
           {/* Planos */}
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-6">
             {plans.map((plan) => (
               <div
                 key={plan.id}
-                className={`border-2 rounded-lg p-4 cursor-pointer transition-all ${
+                className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all hover:shadow-lg ${
                   selectedPlan === plan.id
-                    ? 'border-fruit-green-500 bg-fruit-green-50'
+                    ? 'border-fruit-green-500 bg-fruit-green-50 shadow-lg'
                     : 'border-gray-200 hover:border-fruit-green-300'
-                } ${plan.popular ? 'relative' : ''}`}
-                onClick={() => setSelectedPlan(plan.id)}
+                }`}
+                onClick={() => handlePlanClick(plan.id)}
               >
                 {plan.popular && (
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-fruit-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <span className="bg-fruit-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                       Mais Popular
                     </span>
                   </div>
                 )}
                 
-                <div className="text-center">
-                  <h3 className="font-semibold text-lg">{plan.name}</h3>
-                  <div className="my-2">
-                    <span className="text-2xl font-bold text-fruit-green-600">{plan.price}</span>
-                    <span className="text-gray-500">{plan.period}</span>
+                <div className="text-center pt-2">
+                  <h3 className="font-semibold text-xl mb-4">{plan.name}</h3>
+                  <div className="mb-6">
+                    <span className="text-3xl font-bold text-fruit-green-600">{plan.price}</span>
+                    <span className="text-gray-500 text-lg">{plan.period}</span>
                   </div>
                   
-                  <ul className="space-y-2 text-sm">
+                  <ul className="space-y-3 text-sm mb-6">
                     {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-center space-x-2">
-                        <Check className="w-4 h-4 text-fruit-green-500" />
-                        <span>{feature}</span>
+                      <li key={index} className="flex items-center space-x-3">
+                        <Check className="w-5 h-5 text-fruit-green-500 flex-shrink-0" />
+                        <span className="text-left">{feature}</span>
                       </li>
                     ))}
                   </ul>
+
+                  <Button 
+                    className={`w-full py-3 ${
+                      plan.popular 
+                        ? 'fruit-gradient text-white hover:opacity-90' 
+                        : 'border border-fruit-green-500 text-fruit-green-600 hover:bg-fruit-green-50'
+                    }`}
+                    variant={plan.popular ? "default" : "outline"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePlanClick(plan.id);
+                    }}
+                  >
+                    <CreditCard className="w-4 h-4 mr-2" />
+                    {selectedPlan === plan.id ? 'Selecionado' : 'Selecionar Plano'}
+                  </Button>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Formulário de Pagamento */}
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Nome completo</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">E-mail</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">WhatsApp</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="(11) 99999-9999"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="cardNumber">Número do cartão</Label>
-                <Input
-                  id="cardNumber"
-                  name="cardNumber"
-                  value={formData.cardNumber}
-                  onChange={handleInputChange}
-                  placeholder="1234 5678 9012 3456"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="expiryDate">Validade</Label>
-                <Input
-                  id="expiryDate"
-                  name="expiryDate"
-                  value={formData.expiryDate}
-                  onChange={handleInputChange}
-                  placeholder="MM/AA"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="cvv">CVV</Label>
-                <Input
-                  id="cvv"
-                  name="cvv"
-                  value={formData.cvv}
-                  onChange={handleInputChange}
-                  placeholder="123"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <Shield className="w-4 h-4 text-fruit-green-500" />
-              <span>Pagamento 100% seguro e criptografado</span>
-            </div>
-
-            <Button type="submit" className="w-full fruit-gradient text-white py-3 text-lg">
+          {/* Botão de pagamento principal */}
+          <div className="text-center pt-6 border-t">
+            <p className="text-gray-600 mb-4">
+              Ou prossiga com o plano selecionado:
+            </p>
+            <Button 
+              onClick={handlePaymentRedirect}
+              className="fruit-gradient text-white px-8 py-4 text-lg hover:opacity-90"
+              size="lg"
+            >
               <CreditCard className="w-5 h-5 mr-2" />
-              Assinar por {plans.find(p => p.id === selectedPlan)?.price}{plans.find(p => p.id === selectedPlan)?.period}
+              Pagar {plans.find(p => p.id === selectedPlan)?.price}{plans.find(p => p.id === selectedPlan)?.period}
             </Button>
-          </form>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

@@ -1,6 +1,6 @@
 
 export const openWhatsApp = (message?: string) => {
-  const phoneNumber = "5511999999999"; // Substitua pelo número real
+  const phoneNumber = "5511945237617"; // Número atualizado
   const defaultMessage = "Olá! Gostaria de experimentar o FindFruit. Como posso começar?";
   const finalMessage = message || defaultMessage;
   const encodedMessage = encodeURIComponent(finalMessage);

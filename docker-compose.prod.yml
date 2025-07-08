@@ -1,0 +1,23 @@
+
+version: '3.8'
+
+services:
+  findfruit:
+    image: ${DOCKER_USERNAME}/findfruit:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./ssl:/etc/ssl/certs:ro
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.service=findfruit"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300 --cleanup
+    restart: unless-stopped

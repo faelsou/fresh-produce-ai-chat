@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Play, Star, Users } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -38,7 +37,7 @@ const Hero = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-6xl font-bold font-poppins text-gray-900 leading-tight">
-                  Nunca mais compre frutas{" "}
+                  {currentWord === "passadas" ? "Nunca mais compre frutas" : "Compre frutas"}{" "}
                   <span className="bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent transition-all duration-500">
                     {currentWord}
                   </span>

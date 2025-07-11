@@ -1,6 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Play, Star, Users } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DemoModal from "./DemoModal";
 import PaymentModal from "./PaymentModal";
 import { sendPhotoInstruction } from "@/utils/whatsapp";
@@ -8,6 +9,15 @@ import { sendPhotoInstruction } from "@/utils/whatsapp";
 const Hero = () => {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+  const [currentWord, setCurrentWord] = useState("passadas");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWord(prev => prev === "passadas" ? "no ponto" : "passadas");
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -28,8 +38,10 @@ const Hero = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-6xl font-bold font-poppins text-gray-900 leading-tight">
-                  Nunca mais compre frutas
-                  <span className="bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent"> passadas</span>
+                  Nunca mais compre frutas{" "}
+                  <span className="bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent transition-all duration-500">
+                    {currentWord}
+                  </span>
                 </h1>
                 
                 <p className="text-xl text-gray-600 leading-relaxed">

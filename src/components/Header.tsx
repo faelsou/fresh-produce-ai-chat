@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -24,19 +25,19 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('problema')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
+            <button onClick={() => scrollToSection('problema')} className="text-gray-600 hover:text-purple-600 transition-colors">
               Problema
             </button>
-            <button onClick={() => scrollToSection('como-funciona')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
+            <button onClick={() => scrollToSection('como-funciona')} className="text-gray-600 hover:text-purple-600 transition-colors">
               Como Funciona
             </button>
-            <button onClick={() => scrollToSection('beneficios')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
+            <button onClick={() => scrollToSection('beneficios')} className="text-gray-600 hover:text-purple-600 transition-colors">
               Benefícios
             </button>
-            <button onClick={() => scrollToSection('depoimentos')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
+            <button onClick={() => scrollToSection('depoimentos')} className="text-gray-600 hover:text-purple-600 transition-colors">
               Depoimentos
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-purple-600 transition-colors">
               FAQ
             </button>
           </nav>
@@ -44,7 +45,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button 
               onClick={sendPhotoInstruction}
-              className="fruit-gradient text-white hover:opacity-90 transition-opacity"
+              className="grape-gradient text-white hover:opacity-90 transition-opacity"
             >
               Começar Grátis
             </Button>
@@ -52,7 +53,7 @@ const Header = () => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-fruit-green-600 transition-colors"
+            className="md:hidden p-2 text-gray-600 hover:text-purple-600 transition-colors"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -61,24 +62,24 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('problema')} className="text-left text-gray-600 hover:text-fruit-green-600 transition-colors">
+              <button onClick={() => scrollToSection('problema')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
                 Problema
               </button>
-              <button onClick={() => scrollToSection('como-funciona')} className="text-left text-gray-600 hover:text-fruit-green-600 transition-colors">
+              <button onClick={() => scrollToSection('como-funciona')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
                 Como Funciona
               </button>
-              <button onClick={() => scrollToSection('beneficios')} className="text-left text-gray-600 hover:text-fruit-green-600 transition-colors">
+              <button onClick={() => scrollToSection('beneficios')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
                 Benefícios
               </button>
-              <button onClick={() => scrollToSection('depoimentos')} className="text-left text-gray-600 hover:text-fruit-green-600 transition-colors">
+              <button onClick={() => scrollToSection('depoimentos')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
                 Depoimentos
               </button>
-              <button onClick={() => scrollToSection('faq')} className="text-left text-gray-600 hover:text-fruit-green-600 transition-colors">
+              <button onClick={() => scrollToSection('faq')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
                 FAQ
               </button>
               <Button 
                 onClick={sendPhotoInstruction}
-                className="fruit-gradient text-white hover:opacity-90 transition-opacity w-full"
+                className="grape-gradient text-white hover:opacity-90 transition-opacity w-full"
               >
                 Começar Grátis
               </Button>

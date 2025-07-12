@@ -52,7 +52,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <Card 
               key={index}
-              className="border-2 border-gray-100 hover:border-fruit-green-200 transition-all duration-300 hover:shadow-xl group animate-scale-in"
+              className="border-2 border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-xl group animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-8 text-center space-y-4">
@@ -72,24 +72,24 @@ const Benefits = () => {
           ))}
         </div>
 
-        <div className="mt-20 bg-gradient-to-r from-fruit-green-50 to-fruit-orange-50 rounded-3xl p-8 md:p-12 border border-fruit-green-100">
+        <div className="mt-20 grape-gradient rounded-3xl p-8 md:p-12 border border-purple-100">
           <div className="text-center space-y-6">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h3 className="text-2xl md:text-3xl font-bold text-white">
               Mais de 10.000 pessoas já economizam tempo e dinheiro
             </h3>
             
             <div className="grid md:grid-cols-3 gap-8 mt-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-fruit-green-600 mb-2">98%</div>
-                <p className="text-gray-600">Redução no desperdício de alimentos</p>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">98%</div>
+                <p className="text-purple-100">Redução no desperdício de alimentos</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-fruit-orange-500 mb-2">5min</div>
-                <p className="text-gray-600">Tempo médio economizado por consulta</p>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">5min</div>
+                <p className="text-purple-100">Tempo médio economizado por consulta</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-purple-500 mb-2">100+</div>
-                <p className="text-gray-600">Tipos de frutas e legumes identificados</p>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">100+</div>
+                <p className="text-purple-100">Tipos de frutas e legumes identificados</p>
               </div>
             </div>
           </div>

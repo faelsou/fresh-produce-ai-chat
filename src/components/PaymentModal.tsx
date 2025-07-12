@@ -83,11 +83,11 @@ const PaymentModal = ({ isOpen, onClose }: PaymentModalProps) => {
                     ? 'border-purple-500 bg-purple-50 shadow-lg'
                     : 'border-gray-200 hover:border-purple-300'
                 }`}
-                onClick={() => handlePlanClick(plan.id)}
+                onClick={() => setSelectedPlan(plan.id)}
               >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                    <span className="bg-fruit-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    <span className="grape-gradient text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                       Mais Popular
                     </span>
                   </div>
@@ -122,7 +122,7 @@ const PaymentModal = ({ isOpen, onClose }: PaymentModalProps) => {
                     }}
                   >
                     <CreditCard className="w-4 h-4 mr-2" />
-                    {selectedPlan === plan.id ? 'Selecionado' : 'Selecionar Plano'}
+                    Selecionar Plano
                   </Button>
                 </div>
               </div>

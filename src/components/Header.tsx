@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -25,19 +24,19 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('problema')} className="text-gray-600 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('problema')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
               Problema
             </button>
-            <button onClick={() => scrollToSection('como-funciona')} className="text-gray-600 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('como-funciona')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
               Como Funciona
             </button>
-            <button onClick={() => scrollToSection('beneficios')} className="text-gray-600 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('beneficios')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
               Benefícios
             </button>
-            <button onClick={() => scrollToSection('depoimentos')} className="text-gray-600 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('depoimentos')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
               Depoimentos
             </button>
-            <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-purple-600 transition-colors">
+            <button onClick={() => scrollToSection('faq')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
               FAQ
             </button>
           </nav>
@@ -45,7 +44,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button 
               onClick={sendPhotoInstruction}
-              className="grape-gradient text-white hover:opacity-90 transition-opacity"
+              className="fruit-gradient text-white hover:opacity-90 transition-opacity"
             >
               Começar Grátis
             </Button>
@@ -79,7 +78,7 @@ const Header = () => {
               </button>
               <Button 
                 onClick={sendPhotoInstruction}
-                className="grape-gradient text-white hover:opacity-90 transition-opacity w-full"
+                className="fruit-gradient text-white hover:opacity-90 transition-opacity w-full"
               >
                 Começar Grátis
               </Button>

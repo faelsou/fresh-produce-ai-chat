@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -20,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-2">
-            <span className="text-2xl bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent">🍇</span>
+            <span className="text-2xl">🍇</span>
             <span className="text-xl font-bold font-poppins text-gray-900">FindFruit</span>
           </div>
           

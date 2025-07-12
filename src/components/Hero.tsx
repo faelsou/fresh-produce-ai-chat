@@ -20,7 +20,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-20 pb-16 fresh-gradient min-h-screen flex items-center">
+      <section className="pt-20 pb-16 grape-gradient min-h-screen flex items-center">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
@@ -38,7 +38,7 @@ const Hero = () => {
                 
                 <h1 className="text-4xl md:text-6xl font-bold font-poppins text-gray-900 leading-tight">
                   {currentWord === "passadas" ? "Nunca mais compre frutas" : "Compre frutas"}{" "}
-                  <span className="bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent transition-all duration-500">
+                  <span className="bg-gradient-to-r from-purple-600 to-fruit-orange-500 bg-clip-text text-transparent transition-all duration-500">
                     {currentWord}
                   </span>
                 </h1>

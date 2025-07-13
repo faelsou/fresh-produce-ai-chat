@@ -29,7 +29,7 @@ const Benefits = () => {
       description: "Saiba exatamente quando consumir cada alimento"
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-purple-500" />,
+      icon: <CheckCircle className="w-8 h-8 text-fruit-green-500" />,
       title: "100% gratuito",
       description: "Todas as funcionalidades básicas sem custo"
     }
@@ -51,7 +51,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <Card 
               key={index}
-              className="border-2 border-gray-100 hover:border-purple-200 transition-all duration-300 hover:shadow-xl group animate-scale-in"
+              className="border-2 border-gray-100 hover:border-fruit-green-200 transition-all duration-300 hover:shadow-xl group animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-8 text-center space-y-4">
@@ -71,7 +71,7 @@ const Benefits = () => {
           ))}
         </div>
 
-        <div className="mt-20 fruit-gradient rounded-3xl p-8 md:p-12 border border-purple-100">
+        <div className="mt-20 fruit-gradient rounded-3xl p-8 md:p-12 border border-fruit-green-100">
           <div className="text-center space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-white">
               Mais de 10.000 pessoas já economizam tempo e dinheiro

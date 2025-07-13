@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Play, Star, Users } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -26,7 +25,7 @@ const Hero = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
-                <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-200">
+                <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-fruit-green-200">
                   <div className="flex items-center space-x-1">
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
@@ -39,7 +38,7 @@ const Hero = () => {
                 
                 <h1 className="text-4xl md:text-6xl font-bold font-poppins text-gray-900 leading-tight">
                   {currentWord === "passadas" ? "Nunca mais compre frutas" : "Compre frutas"}{" "}
-                  <span className="bg-gradient-to-r from-purple-600 to-fruit-orange-500 bg-clip-text text-transparent transition-all duration-500">
+                  <span className="bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent transition-all duration-500">
                     {currentWord}
                   </span>
                 </h1>
@@ -63,7 +62,7 @@ const Hero = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="px-8 py-4 text-lg border-2 border-purple-300 text-purple-700 hover:bg-purple-50"
+                  className="px-8 py-4 text-lg border-2 border-fruit-green-300 text-fruit-green-700 hover:bg-fruit-green-50"
                   onClick={() => setIsDemoOpen(true)}
                 >
                   <Play className="w-5 h-5 mr-2" />
@@ -73,11 +72,11 @@ const Hero = () => {
 
               <div className="flex items-center space-x-8 pt-4">
                 <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-purple-600" />
+                  <Users className="w-5 h-5 text-fruit-green-600" />
                   <span className="text-gray-600">+10k usuários ativos</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <MessageCircle className="w-5 h-5 text-purple-600" />
+                  <MessageCircle className="w-5 h-5 text-fruit-green-600" />
                   <span className="text-gray-600">100% no WhatsApp</span>
                 </div>
               </div>
@@ -86,7 +85,7 @@ const Hero = () => {
             <div className="relative animate-scale-in">
               <div className="relative z-10">
                 <div className="bg-white rounded-3xl shadow-2xl p-6 max-w-sm mx-auto">
-                  <div className="bg-gradient-to-r from-purple-600 to-fruit-orange-500 rounded-2xl p-4 mb-4">
+                  <div className="fruit-gradient rounded-2xl p-4 mb-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center space-x-2">
                         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
@@ -119,7 +118,7 @@ const Hero = () => {
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-fruit-orange-200 rounded-full flex items-center justify-center animate-float">
                 <span className="text-2xl">🥑</span>
               </div>
-              <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-purple-200 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+              <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-fruit-green-200 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
                 <span className="text-3xl">🍓</span>
               </div>
               <div className="absolute top-1/2 -right-8 w-12 h-12 bg-yellow-200 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>

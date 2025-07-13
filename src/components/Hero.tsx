@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-20 pb-16 bg-gradient-to-r from-fruit-green-50 to-fruit-orange-50 min-h-screen flex items-center">
+      <section className="pt-20 pb-16 fresh-gradient min-h-screen flex items-center">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">

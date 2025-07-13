@@ -37,7 +37,7 @@ const PricingPlans = () => {
 
   return (
     <>
-      <section className="py-20 bg-gradient-to-r from-fruit-green-50 to-fruit-orange-50">
+      <section className="py-20 fresh-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-gray-900 mb-4">

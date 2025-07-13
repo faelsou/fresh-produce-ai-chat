@@ -14,7 +14,7 @@ const CTA = () => {
 
   return (
     <>
-      <section className="py-20 grape-gradient">
+      <section className="py-20 fruit-gradient">
         <div className="container mx-auto px-4">
           <div className="text-center text-white space-y-8 animate-fade-in">
             <h2 className="text-3xl md:text-5xl font-bold font-poppins leading-tight">

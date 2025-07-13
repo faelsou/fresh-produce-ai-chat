@@ -1,15 +1,27 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { sendPhotoInstruction } from "@/utils/whatsapp";
 
-const Header = () => {
+interface HeaderProps {
+  onPricingClick?: () => void;
+}
+
+const Header = ({ onPricingClick }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const handlePricingClick = () => {
+    if (onPricingClick) {
+      onPricingClick();
     }
     setIsMenuOpen(false);
   };
@@ -24,8 +36,8 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('problema')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
-              Problema
+            <button onClick={handlePricingClick} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
+              Planos
             </button>
             <button onClick={() => scrollToSection('como-funciona')} className="text-gray-600 hover:text-fruit-green-600 transition-colors">
               Como Funciona
@@ -61,8 +73,8 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('problema')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
-                Problema
+              <button onClick={handlePricingClick} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
+                Planos
               </button>
               <button onClick={() => scrollToSection('como-funciona')} className="text-left text-gray-600 hover:text-purple-600 transition-colors">
                 Como Funciona

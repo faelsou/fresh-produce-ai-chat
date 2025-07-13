@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-20 pb-16 grape-gradient min-h-screen flex items-center">
+      <section className="pt-20 pb-16 bg-gradient-to-r from-fruit-green-50 to-fruit-orange-50 min-h-screen flex items-center">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
@@ -53,7 +53,7 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="grape-gradient text-white px-8 py-4 text-lg font-semibold hover:opacity-90 transition-opacity transform hover:scale-105"
+                  className="fruit-gradient text-white px-8 py-4 text-lg font-semibold hover:opacity-90 transition-opacity transform hover:scale-105"
                   onClick={sendPhotoInstruction}
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -86,7 +86,7 @@ const Hero = () => {
             <div className="relative animate-scale-in">
               <div className="relative z-10">
                 <div className="bg-white rounded-3xl shadow-2xl p-6 max-w-sm mx-auto">
-                  <div className="grape-gradient rounded-2xl p-4 mb-4">
+                  <div className="bg-gradient-to-r from-purple-600 to-fruit-orange-500 rounded-2xl p-4 mb-4">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center space-x-2">
                         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">

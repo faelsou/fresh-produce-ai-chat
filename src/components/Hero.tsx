@@ -28,7 +28,10 @@ const Hero = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-6xl font-bold font-poppins text-gray-900 leading-tight">
-                  Compre frutas maduras:
+                  Compre frutas{" "}
+                  <span className="bg-gradient-to-r from-fruit-green-600 to-fruit-orange-500 bg-clip-text text-transparent">
+                    maduras
+                  </span>
                 </h1>
                 
                 <p className="text-xl text-gray-600 leading-relaxed">

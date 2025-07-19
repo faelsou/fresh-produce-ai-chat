@@ -1,1 +1,7 @@
 project_id = "deftuemtjmecwrdmvzeo"
+
+[functions.metrics]
+verify_jwt = false
+
+[functions.analytics]
+verify_jwt = false

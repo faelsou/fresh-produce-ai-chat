@@ -4,10 +4,12 @@ import { useState } from "react";
 import DemoModal from "./DemoModal";
 import PaymentModal from "./PaymentModal";
 import { sendPhotoInstruction } from "@/utils/whatsapp";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Hero = () => {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+  const { trackButtonClick, trackWhatsAppClick } = useAnalytics();
 
   return (
     <>
@@ -44,7 +46,11 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   className="fruit-gradient text-white px-8 py-4 text-lg font-semibold hover:opacity-90 transition-opacity transform hover:scale-105"
-                  onClick={sendPhotoInstruction}
+                  onClick={() => {
+                    trackWhatsAppClick("Quero analisar uma fruta ou legume. Como devo enviar a foto?");
+                    trackButtonClick("cta_whatsapp", { position: "hero", text: "Começar Agora - É Grátis" });
+                    sendPhotoInstruction();
+                  }}
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Começar Agora - É Grátis
@@ -54,7 +60,10 @@ const Hero = () => {
                   variant="outline" 
                   size="lg" 
                   className="px-8 py-4 text-lg border-2 border-fruit-green-300 text-fruit-green-700 hover:bg-fruit-green-50"
-                  onClick={() => setIsDemoOpen(true)}
+                  onClick={() => {
+                    trackButtonClick("demo_modal", { position: "hero", text: "Ver Demonstração" });
+                    setIsDemoOpen(true);
+                  }}
                 >
                   <Play className="w-5 h-5 mr-2" />
                   Ver Demonstração

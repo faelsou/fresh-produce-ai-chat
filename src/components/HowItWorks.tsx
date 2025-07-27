@@ -13,14 +13,14 @@ const HowItWorks = () => {
     {
       icon: <Sparkles className="w-12 h-12 text-fruit-orange-500" />,
       step: "2", 
-      title: "IA analisa",
+      title: "Análise instantânea",
       description: "Nossa inteligência artificial identifica o tipo e estado de maturação"
     },
     {
       icon: <BookOpen className="w-12 h-12 text-purple-500" />,
       step: "3",
-      title: "Receba informações",
-      description: "Obtenha dados nutricionais, melhor época de consumo e dicas"
+      title: "Receba o resultado",
+      description: "Diagnóstico completo com dicas e receitas"
     },
     {
       icon: <MessageCircle className="w-12 h-12 text-blue-500" />,

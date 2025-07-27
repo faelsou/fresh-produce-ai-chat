@@ -14,13 +14,15 @@ const HowItWorks = () => {
       icon: <Sparkles className="w-12 h-12 text-fruit-orange-500" />,
       step: "2", 
       title: "Análise instantânea",
-      description: "Nossa inteligência artificial identifica o tipo e estado de maturação"
+      description: "Nossa IA analisa em segundos",
+      image: "/src/assets/dashboard-analysis.jpg"
     },
     {
       icon: <BookOpen className="w-12 h-12 text-purple-500" />,
       step: "3",
       title: "Receba o resultado",
-      description: "Diagnóstico completo com dicas e receitas"
+      description: "Diagnóstico completo com dicas e receitas",
+      image: "/src/assets/result-recipe.jpg"
     },
     {
       icon: <MessageCircle className="w-12 h-12 text-blue-500" />,
@@ -55,9 +57,20 @@ const HowItWorks = () => {
                     <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-fruit-green-500 to-fruit-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                       {step.step}
                     </div>
-                    <div className="flex justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                      {step.icon}
-                    </div>
+                    
+                    {step.image ? (
+                      <div className="mb-4">
+                        <img 
+                          src={step.image} 
+                          alt={step.title}
+                          className="w-full h-32 object-cover rounded-lg mb-3"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                        {step.icon}
+                      </div>
+                    )}
                   </div>
                   
                   <h3 className="text-xl font-semibold text-gray-900">
